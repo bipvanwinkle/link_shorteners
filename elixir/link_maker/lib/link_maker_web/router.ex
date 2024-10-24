@@ -21,9 +21,12 @@ defmodule LinkMakerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", LinkMakerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", LinkMakerWeb do
+    pipe_through :api
+
+    get "/links", LinkController, :index
+    post "/links", LinkController, :create
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:link_maker, :dev_routes) do

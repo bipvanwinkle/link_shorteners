@@ -52,7 +52,7 @@ defmodule LinkMaker.Links do
   def create_link(attrs \\ %{}) do
     %Link{}
     |> Link.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert(returning: true)
   end
 
   @doc """
